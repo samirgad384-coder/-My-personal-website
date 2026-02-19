@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد سمير جاد | مطور برمجيات ومهندس مستقبلي</title>
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #FFD700;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        /* قسم عني */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        /* قسم المشاريع */
+        .projects-bg {
+            background-color: #f1f5f9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .p-icon-1 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .p-icon-2 { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .p-icon-3 { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .p-icon-4 { background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%); }
+
+        .project-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .p-tag {
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #e2e8f0;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+
+        /* قسم التواصل */
+        .contact {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .social-btn:hover {
+            background: transparent;
+            transform: translateY(-5px);
+        }
+
+        .s-github:hover { border-color: #f0f6fc; color: #f0f6fc; }
+        .s-linkedin:hover { border-color: #0a66c2; color: #0a66c2; }
+        .s-email:hover { border-color: #ea4335; color: #ea4335; }
+        .s-whatsapp:hover { border-color: #25D366; color: #25D366; }
+
+        footer {
+            background: #0f172a;
+            color: #64748b;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* التجاوب (Responsive) */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; /* يمكن إضافة قائمة برجر لاحقاً */ }
+            .contact-links { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر القائمة -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><i class="fas fa-code"></i> محمد سمير جاد</a>
+                <ul class="nav-links">
+                    <li><a href="#about">من أنا</a></li>
+                    <li><a href="#projects">مشاريعي</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero" id="home">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div class="hero-content">
+                <h1 class="hero-title">أهلاً، أنا <span class="highlight">محمد سمير جاد</span></h1>
+                <p class="hero-subtitle">طالب ثانوية عامة، مهندس مستقبلي، ومطور برمجيات طموح. أسعى لتطوير حلول برمجية ذكية (SaaS) وتطبيقات مدعومة بالذكاء الاصطناعي، وأطمح للدراسة في الصين (منحة CSC).</p>
+                <div>
+                    <a href="#projects" class="btn btn-primary"><i class="fas fa-laptop-code"></i> تصفح أعمالي</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> تواصل معي</a>
+                </div>
+            </div>
+            <!-- يمكنك وضع صورتك هنا مستقبلاً -->
+            <div style="flex: 1; text-align: center; min-width: 300px; margin-top: 30px;">
+                <div style="font-size: 15rem; color: rgba(255,215,0,0.8); animation: float 3s ease-in-out infinite;">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من أنا -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">من أنا؟</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p style="margin-bottom: 20px;">
+                        أنا مطور برمجيات يعتمد على التعلم الذاتي، أدمج بين التفكير المنطقي الهندسي والرؤية التجارية لريادة الأعمال. أؤمن بأن البرمجة ليست مجرد كتابة أكواد، بل هي أداة لحل المشكلات الواقعية وبناء منتجات قابلة للتوسع (SaaS).
+                    </p>
+                    <p>
+                        أعمل حالياً كـ (Solo Developer) على مشاريع ضخمة، وأمتلك خبرة في تطوير واجهات المستخدم، الذكاء الاصطناعي (الرؤية الحاسوبية)، وبرمجة الروبوتات. أستهدف بناء محفظة أعمال قوية لدعم مسيرتي الأكاديمية والمهنية.
+                    </p>
+                    
+                    <h3 style="margin: 30px 0 15px; color: var(--dark);"><i class="fas fa-toolbox" style="color: var(--primary);"></i> تقنيات ومهارات أتقنها:</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                        <span class="skill-tag"><i class="fas fa-robot"></i> AI Bots</span>
+                        <span class="skill-tag"><i class="fas fa-eye"></i> Computer Vision</span>
+                        <span class="skill-tag"><i class="fas fa-building"></i> SaaS Architecture</span>
+                        <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Web Apps</span>
+                        <span class="skill-tag"><i class="fas fa-project-diagram"></i> System Design</span>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <!-- شكل توضيحي يعبر عن التكنولوجيا -->
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="Developer" style="max-width: 100%; height: auto; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section id="projects" class="projects-bg">
+        <div class="container">
+            <h2 class="section-title">أبرز مشاريعي</h2>
+            <div class="projects-grid">
+                
+                <!-- مشروع إعمار -->
+                <div class="project-card">
+                    <div class="project-icon p-icon-1">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">تطبيق إعمار (iamaar)</h3>
+                        <p class="project-desc">منصة (SaaS) تجارية لإدارة المقاولات والبناء. يهدف التطبيق لتنظيم عمليات شركات المقاولات مع واجهة تحكم احترافية وخطة أعمال تهدف للربح والتقييم العالي للشركة.</p>
+                        <div class="project-tags">
+                            <span class="p-tag">SaaS</span>
+                            <span class="p-tag">HTML/JS</span>
+                            <span class="p-tag">Business</span>
+                        </div>
+                        <a href="https://github.com/samirgad384-coder/iamaar" target="_blank" class="project-link">عرض الكود المصدري <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- بوت المنح -->
+                <div class="project-card">
+                    <div class="project-icon p-icon-3">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Scholarship AI Bot</h3>
+                        <p class="project-desc">بوت تيليجرام ذكي يعتمد على الذكاء الاصطناعي للبحث عن المنح الدراسية العالمية، تحليل الملف الشخصي للطلاب، وتقديم توصيات مخصصة وتتبع حالة التقديم.</p>
+                        <div class="project-tags">
+                            <span class="p-tag">Python</span>
+                            <span class="p-tag">AI / Machine Learning</span>
+                            <span class="p-tag">Telegram API</span>
+                        </div>
+                        <a href="https://github.com/samirgad384-coder/scholarship-bot" target="_blank" class="project-link">عرض الكود المصدري <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- يلا منح -->
+                <div class="project-card">
+                    <div class="project-icon p-icon-2">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">يلا منح (YallaScholarships)</h3>
+                        <p class="project-desc">منصة ويب متكاملة مصممة لمساعدة الطلاب العرب في اكتشاف والبحث عن المنح الدراسية حول العالم بواجهة استخدام سهلة وسلسة.</p>
+                        <div class="project-tags">
+                            <span class="p-tag">JavaScript</span>
+                            <span class="p-tag">Web Development</span>
+                            <span class="p-tag">Education</span>
+                        </div>
+                        <a href="https://github.com/samirgad384-coder/YallaScholarships" target="_blank" class="project-link">عرض الكود المصدري <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- حاسبة الرخام -->
+                <div class="project-card">
+                    <div class="project-icon p-icon-4">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">حاسبة مساحات الرخام</h3>
+                        <p class="project-desc">تطبيق ويب (يعمل على الموبايل) لحساب أبعاد وتكاليف الرخام للمقاولين، مع نظام مذكرات لحفظ الفواتير وتصميم احترافي يدعم الوضع الداكن والمؤثرات البصرية.</p>
+                        <div class="project-tags">
+                            <span class="p-tag">UI/UX</span>
+                            <span class="p-tag">Local Storage</span>
+                            <span class="p-tag">PWA Concept</span>
+                        </div>
+                        <a href="https://github.com/samirgad384-coder/-My-personal-website/tree/marble-calculator" target="_blank" class="project-link">عرض تفاصيل المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">لنعمل معاً</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: #cbd5e1;">
+                سواء كنت مهتماً بمشاريعي، أو تبحث عن مطور شغوف لفريقك، أو ترغب في مناقشة فرص دراسية للجامعات الصينية (CSC).. لا تتردد في مراسلتي!
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/samirgad384-coder" target="_blank" class="social-btn s-github" title="GitHub"><i class="fab fa-github"></i></a>
+                <!-- يمكنك تغيير الروابط التالية ببياناتك الحقيقية لاحقاً -->
+                <a href="#" target="_blank" class="social-btn s-linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:your.email@example.com" class="social-btn s-email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/+201118435630" target="_blank" class="social-btn s-whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 محمد سمير جاد. تم التطوير بشغف وكود نظيف.</p>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        /* تفعيل الانتقال السلس للصفحة */
+        html { scroll-behavior: smooth; }
+    </style>
+</body>
+</html>
